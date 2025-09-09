@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+  >
+  <title>Man Face Games — All Games</title>
+  <link rel="icon" type="image/webp" href="../src/img/Favicon.webp">
+  <meta name="description" content="Browse every Man Face Games experience — see what's hot right now and discover your next favorite.">
+  <meta name="keywords" content="roblox, game studio, roblox games, development, ugc, man face games">
+  <meta name="author" content="Man Face Games">
+
+  <meta property="og:title" content="Man Face Games — All Games">
+  <meta property="og:description" content="Browse every Man Face Games experience — see what's hot right now and discover your next favorite.">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: "Albert Sans", system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji"; }
+    ::selection { background-color: #2563eb; color: #fff; }
+  </style>
+</head>
+
+<body class="bg-white text-slate-900 antialiased">
+  <nav class="fixed top-0 z-50 w-full bg-white/80 backdrop-blur border-b border-blue-100">
+    <div class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
+      <div class="flex items-center gap-3">
+        <img src="../src/img/TransparentLogo.webp" alt="Man Face Games logo" class="h-12">
+        <a href="../" class="font-semibold">Man Face Games</a>
+      </div>
+      <div class="hidden md:flex items-center gap-2">
+        <a href="../#games" class="px-4 py-2 rounded-md text-sm hover:bg-blue-600 hover:text-white transition">Games</a>
+        <a href="../#about" class="px-4 py-2 rounded-md text-sm hover:bg-blue-600 hover:text-white transition">About</a>
+        <a href="../#team" class="px-4 py-2 rounded-md text-sm hover:bg-blue-600 hover:text-white transition">Team</a>
+      </div>
+      <div class="hidden md:flex items-center gap-3">
+        <a href="./" class="px-4 py-2 rounded-md text-sm border border-blue-600 text-blue-700 hover:bg-blue-50 transition">All Games</a>
+        <a href="https://discord.gg/ADDNDbBme9" target="_blank" class="px-4 py-2 rounded-md text-sm bg-blue-600 text-white hover:bg-blue-700 transition">Discord</a>
+      </div>
+      <button id="mobile-menu-toggle" class="md:hidden text-slate-900"><i class="fas fa-bars text-xl"></i></button>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden flex-col gap-2 px-6 pb-4 opacity-0 scale-95 origin-top bg-white border-t border-blue-100 rounded-b-md transition">
+      <a href="../#games" class="py-2 rounded-md hover:bg-blue-600 hover:text-white">Games</a>
+      <a href="../#about" class="py-2 rounded-md hover:bg-blue-600 hover:text-white">About</a>
+      <a href="../#team" class="py-2 rounded-md hover:bg-blue-600 hover:text-white">Team</a>
+      <a href="./" class="py-2 rounded-md hover:bg-blue-50">All Games</a>
+      <a href="https://discord.gg/ADDNDbBme9" target="_blank" class="py-2 text-center rounded-md bg-blue-600 text-white hover:bg-blue-700">Discord</a>
+    </div>
+  </nav>
+
+  <section class="relative pt-36 pb-16 overflow-hidden">
+    <div class="absolute inset-0 -z-10">
+      <div class="absolute -top-24 -left-24 h-80 w-80 rounded-full bg-blue-200 blur-3xl opacity-60"></div>
+      <div class="absolute top-32 -right-24 h-80 w-80 rounded-full bg-blue-300 blur-3xl opacity-50"></div>
+    </div>
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-10" data-aos="fade-up">
+        <h1 class="text-4xl md:text-5xl font-extrabold">All Games</h1>
+        <p class="mt-4 text-lg text-slate-600 max-w-2xl mx-auto">Browse our games</p>
+      </div>
+
+      <div class="max-w-2xl mx-auto mb-10" data-aos="fade-up" data-aos-delay="100">
+        <div class="relative">
+          <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-slate-400" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M12.9 14.32a8 8 0 111.414-1.414l4.387 4.387a1 1 0 01-1.414 1.414l-4.387-4.387zM14 8a6 6 0 11-12 0 6 6 0 0112 0z" clip-rule="evenodd"/></svg>
+          </div>
+          <input
+            id="game-search"
+            type="text"
+            placeholder="Search games..."
+            class="block w-full pl-10 pr-24 py-4 rounded-xl border border-blue-200 bg-white text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400 transition"
+          >
+          <div class="absolute inset-y-0 right-0 pr-3 flex items-center">
+            <span id="game-count" class="text-slate-500 text-sm">0 games</span>
+          </div>
+        </div>
+      </div>
+
+      <div id="games-container" class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"></div>
+
+      <div id="loading" class="text-center py-12">
+        <div class="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-600 mx-auto"></div>
+        <p class="mt-4 text-slate-500">Loading games…</p>
+      </div>
+
+      <div id="no-results" class="text-center py-12 hidden">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-blue-400 mx-auto mb-3" viewBox="0 0 24 24" fill="currentColor"><path d="M9 2a1 1 0 00-.894.553l-7 14A1 1 0 002 18h20a1 1 0 00.894-1.447l-7-14A1 1 0 0015 2H9zM11 8h2v4h-2V8zm0 6h2v2h-2v-2z"/></svg>
+        <h3 class="text-lg font-semibold">No games found</h3>
+        <p class="mt-1 text-slate-500">Try a different search.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-blue-900 text-white">
+    <div class="max-w-6xl mx-auto px-6 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <img src="../src/img/TransparentLogo.webp" alt="Man Face Games logo small" class="h-10 bg-white">
+        <span class="font-bold text-xl">Man Face Games</span>
+      </div>
+      <div class="flex items-center gap-4 text-blue-100">
+        <a href="https://discord.gg/ADDNDbBme9" target="_blank" class="hover:text-white"><i class="fab fa-discord"></i></a>
+      </div>
+    </div>
+    <div class="border-t border-blue-800 py-4 text-center text-blue-100 text-sm">
+      &copy; 2025 Man Face Games. All rights reserved. — Site by
+      <a href="https://brejndead.net" target="_blank" class="font-bold hover:text-white">@brejndead</a>
+    </div>
+  </footer>
+
+  <script>
+    AOS.init({ duration: 800, once: true });
+    document.getElementById("mobile-menu-toggle").addEventListener("click", () => {
+      const menu = document.getElementById("mobile-menu");
+      menu.classList.toggle("hidden");
+      if (!menu.classList.contains("hidden")) {
+        requestAnimationFrame(() => { menu.style.opacity = "1"; menu.style.transform = "scale(1)"; });
+      } else {
+        menu.style.opacity = "0"; menu.style.transform = "scale(0.95)";
+      }
+    });
+  </script>
+
+  <script type="module">
+    const baseJsonUrl = "https://raw.githubusercontent.com/wernisch/manface-stats/refs/heads/main/public/games.json";
+    const jsonUrl = `${baseJsonUrl}?v=${Date.now()}`;
+
+    const gamesContainer = document.getElementById("games-container");
+    const loadingElement = document.getElementById("loading");
+    const noResultsElement = document.getElementById("no-results");
+    const searchInput = document.getElementById("game-search");
+    const gameCountElement = document.getElementById("game-count");
+
+    function renderCard(game, index) {
+      const delay = index < 4 ? (index * 100) + 100 : 100;
+      const like = game.likeRatio ?? 0;
+      const visits = game.visits ?? 0;
+      const playing = game.playing ?? 0;
+
+      const wrapper = document.createElement("div");
+      wrapper.setAttribute("data-aos", "fade-up");
+      wrapper.setAttribute("data-aos-delay", String(delay));
+
+      wrapper.innerHTML = `
+        <div class="h-full flex flex-col overflow-hidden rounded-2xl border border-blue-100 bg-white shadow-sm hover:shadow-md transition">
+          <div class="relative overflow-hidden">
+            <img class="w-full h-56 object-cover" src="${game.icon}" alt="${game.name}" loading="lazy">
+            <div class="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-slate-900/70 to-transparent">
+              <h3 class="text-white text-lg font-semibold">${game.name}</h3>
+              <div class="mt-1 flex items-center gap-3 text-blue-100 text-sm">
+                <span title="${like}% like ratio" class="inline-flex items-center gap-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M2 21h4V9H2v12zM22 10c0-1.1-.9-2-2-2h-5.31l.95-4.57.03-.32a1 1 0 00-.29-.7L14 2 7.59 8.41C7.22 8.78 7 9.3 7 9.83V19c0 1.1.9 2 2 2h8a2 2 0 001.84-1.23l3.02-7.05c.09-.23.14-.47.14-.72V10z"/></svg>
+                  ${like}%
+                </span>
+                <span class="opacity-60">•</span>
+                <span>${visits.toLocaleString()} visits</span>
+              </div>
+            </div>
+          </div>
+          <div class="p-4">
+            <div class="flex items-center justify-between">
+              <span class="text-sm text-slate-600">
+                <span class="font-semibold text-blue-700">${playing.toLocaleString()}</span> playing now
+              </span>
+              <a href="https://www.roblox.com/games/${game.rootPlaceId}" target="_blank"
+                 class="inline-flex items-center gap-2 text-sm px-3 py-2 rounded-lg border border-blue-600 text-blue-700 hover:bg-blue-50 transition">
+                Play Now
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M14 3l7 7-7 7v-4H3v-6h11V3z"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      `;
+      return wrapper;
+    }
+
+    function displayGames(games) {
+      gamesContainer.innerHTML = "";
+      if (games.length === 0) {
+        noResultsElement.classList.remove("hidden");
+        gameCountElement.textContent = "0 games";
+        return;
+      }
+      noResultsElement.classList.add("hidden");
+      gameCountElement.textContent = `${games.length} ${games.length === 1 ? "game" : "games"}`;
+      games.forEach((g, i) => gamesContainer.appendChild(renderCard(g, i)));
+    }
+
+    function filterGames(games, q) {
+      const s = q.trim().toLowerCase();
+      if (!s) return games;
+      return games.filter(g =>
+        g.name?.toLowerCase().includes(s) ||
+        g.description?.toLowerCase().includes(s)
+      );
+    }
+
+    async function getGamesData() {
+      loadingElement.classList.remove("hidden");
+      try {
+        const res = await fetch(jsonUrl);
+        const data = await res.json();
+        const games = (data.games || []).sort((a, b) => (b.playing ?? 0) - (a.playing ?? 0));
+        displayGames(games);
+        searchInput.addEventListener("input", () => {
+          displayGames(filterGames(games, searchInput.value));
+        });
+      } catch (e) {
+        console.error("Error loading cached game data:", e);
+        noResultsElement.classList.remove("hidden");
+        noResultsElement.innerHTML = `
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-blue-400 mx-auto mb-3" viewBox="0 0 24 24" fill="currentColor"><path d="M9 2a1 1 0 00-.894.553l-7 14A1 1 0 002 18h20a1 1 0 00.894-1.447l-7-14A1 1 0 0015 2H9zM11 8h2v4h-2V8zm0 6h2v2h-2v-2z"/></svg>
+          <h3 class="text-lg font-semibold">Error loading games</h3>
+          <p class="mt-1 text-slate-500">Please try again later.</p>
+        `;
+      } finally {
+        loadingElement.classList.add("hidden");
+      }
+    }
+
+    getGamesData();
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" defer></script>
+</body>
+</html>
