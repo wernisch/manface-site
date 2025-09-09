@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Man Face Games</title>
+  <link rel="icon" type="image/webp" href="./src/img/Favicon.webp">
+  <meta name="description" content="Man Face Games builds hit Roblox experiences—from concept and design to growth and live ops.">
+  <meta name="keywords" content="roblox, game studio, roblox games, development, ugc, acquisitions">
+  <meta name="author" content="Man Face Games">
+  <meta property="og:title" content="Man Face Games — Roblox Game Studio">
+  <meta property="og:description" content="We craft delightful, scalable Roblox experiences.">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./src/css/home.css">
+</head>
+
+<body class="bg-white text-slate-900 antialiased">
+  <nav class="fixed top-0 z-50 w-full bg-white/80 backdrop-blur border-b border-blue-100">
+    <div class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
+      <div class="flex items-center gap-3">
+        <img src="./src/img/TransparentLogo.webp" alt="Man Face Games" class="h-12">
+        <a href="./" class="font-semibold">Man Face Games</a>
+      </div>
+      <div class="hidden md:flex items-center gap-2">
+        <a href="#games" class="px-4 py-2 rounded-md text-sm hover:bg-blue-600 hover:text-white transition">Games</a>
+        <a href="#about" class="px-4 py-2 rounded-md text-sm hover:bg-blue-600 hover:text-white transition">About</a>
+        <a href="#team" class="px-4 py-2 rounded-md text-sm hover:bg-blue-600 hover:text-white transition">Team</a>
+      </div>
+      <div class="hidden md:flex items-center gap-3">
+        <a href="./games/" class="px-4 py-2 rounded-md text-sm border border-blue-600 text-blue-700 hover:bg-blue-50 transition">All Games</a>
+        <a href="https://discord.gg/ADDNDbBme9" target="_blank" class="px-4 py-2 rounded-md text-sm bg-blue-600 text-white hover:bg-blue-700 transition">Discord</a>
+      </div>
+      <button id="mobile-menu-toggle" class="md:hidden text-slate-900"><i class="fas fa-bars text-xl"></i></button>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden flex-col gap-2 px-6 pb-4 opacity-0 scale-95 origin-top bg-white border-t border-blue-100 rounded-b-md transition">
+      <a href="#games" class="py-2 rounded-md hover:bg-blue-600 hover:text-white">Games</a>
+      <a href="#about" class="py-2 rounded-md hover:bg-blue-600 hover:text-white">About</a>
+      <a href="#team" class="py-2 rounded-md hover:bg-blue-600 hover:text-white">Team</a>
+      <a href="./games/" class="py-2 rounded-md hover:bg-blue-50">All Games</a>
+      <a href="https://discord.gg/ADDNDbBme9" target="_blank" class="py-2 text-center rounded-md bg-blue-600 text-white hover:bg-blue-700">Discord</a>
+    </div>
+  </nav>
+
+  <section class="relative pt-36 pb-20 overflow-hidden">
+    <div class="absolute inset-0 -z-10">
+      <div class="absolute -top-24 -left-24 h-80 w-80 rounded-full bg-blue-200 blur-3xl opacity-60"></div>
+      <div class="absolute top-32 -right-24 h-80 w-80 rounded-full bg-blue-300 blur-3xl opacity-50"></div>
+    </div>
+    <div class="max-w-6xl mx-auto px-6 text-center">
+      <h1 class="albert text-5xl md:text-6xl font-extrabold leading-tight" data-aos="fade-down">Building unforgettable Roblox games</h1>
+      <p class="mt-5 text-lg text-slate-600 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">We design, develop, and scale high-retention experiences with spotless UX, bold visuals, and data-driven live ops.</p>
+      <div class="mt-8 flex items-center justify-center gap-4" data-aos="zoom-in" data-aos-delay="150">
+        <a href="#games" class="px-6 py-3 rounded-xl bg-blue-600 text-white font-semibold hover:bg-blue-700 transition">Explore Games</a>
+        <a href="#about" class="px-6 py-3 rounded-xl border border-blue-600 text-blue-700 hover:bg-blue-50 transition">About Us</a>
+      </div>
+      <div class="mt-14 mx-auto max-w-5xl grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="rounded-2xl border border-blue-100 bg-blue-50 p-6" data-aos="fade-up" data-aos-delay="0">
+          <p class="text-sm text-slate-600">Concurrent Players</p>
+          <p id="player-count" class="text-3xl font-bold text-blue-800">0</p>
+        </div>
+        <div class="rounded-2xl border border-blue-100 bg-blue-50 p-6" data-aos="fade-up" data-aos-delay="50">
+          <p class="text-sm text-slate-600">Total Visits</p>
+          <p id="visits-count" class="text-3xl font-bold text-blue-800">0</p>
+        </div>
+        <div class="rounded-2xl border border-blue-100 bg-blue-50 p-6" data-aos="fade-up" data-aos-delay="100">
+          <p class="text-sm text-slate-600">Published Games</p>
+          <p id="games-created" class="text-3xl font-bold text-blue-800">0</p>
+        </div>
+        <div class="rounded-2xl border border-blue-100 bg-blue-50 p-6" data-aos="fade-up" data-aos-delay="150">
+          <p class="text-sm text-slate-600">Avg. Rating</p>
+          <p id="average-rating" class="text-3xl font-bold text-blue-800">0%</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="games" class="py-20">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center" data-aos="fade-up">
+        <h2 class="text-4xl font-bold mb-3">Featured Games</h2>
+        <p class="text-slate-600 max-w-2xl mx-auto">A hand-picked mix of our top performers and upcoming releases.</p>
+      </div>
+      <div class="mt-10 flex items-center justify-center gap-6" data-aos="fade-up" data-aos-delay="100">
+        <button id="prevSlide" class="p-3 rounded-full border border-blue-200 bg-blue-50 hover:bg-blue-100">←</button>
+        <div id="carouselWrapper" class="relative overflow-hidden rounded-3xl w-full max-w-3xl border border-blue-100 shadow-sm">
+          <div id="carouselInner" class="flex transition-transform duration-700 ease-in-out w-full"></div>
+        </div>
+        <button id="nextSlide" class="p-3 rounded-full border border-blue-200 bg-blue-50 hover:bg-blue-100">→</button>
+      </div>
+      <div class="mt-12 flex justify-center">
+        <a href="./games/" class="px-6 py-3 rounded-xl bg-blue-600 text-white font-semibold hover:bg-blue-700 transition">Browse All</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="py-24">
+    <div class="max-w-5xl mx-auto px-6 text-center">
+      <h2 class="text-4xl font-bold mb-6" data-aos="fade-up">About Us</h2>
+      <p class="text-lg text-slate-600 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="75">We blend playful design with production rigor. Rapid prototyping meets strong art direction, analytics-backed iteration, and community-first updates.</p>
+      <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
+        <div class="rounded-2xl border border-blue-100 bg-white p-6 hover:shadow-md transition" data-aos="fade-up" data-aos-delay="0">
+          <h3 class="text-xl font-semibold mb-2">Game Acquisition</h3>
+          <p class="text-slate-600 text-sm">Ready to sell your game? We provide competitive offers, transparent negotiations, and seamless transfers, ensuring you enjoy a smooth and rewarding experience.</p>
+        </div>
+        <div class="rounded-2xl border border-blue-100 bg-white p-6 hover:shadow-md transition" data-aos="fade-up" data-aos-delay="50">
+          <h3 class="text-xl font-semibold mb-2">Engaging Gameplay</h3>
+          <p class="text-slate-600 text-sm">We design gameplay loops that keep players invested, challenged, and excited—creating experiences they’ll return to again and again.</p>
+        </div>
+        <div class="rounded-2xl border border-blue-100 bg-white p-6 hover:shadow-md transition" data-aos="fade-up" data-aos-delay="100">
+          <h3 class="text-xl font-semibold mb-2">Partnerships</h3>
+          <p class="text-slate-600 text-sm">Looking to bring your idea to life? We collaborate with developers to turn concepts into polished Roblox games, offering guidance, resources, and support every step of the way.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="team" class="py-24 bg-blue-50/50">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-4xl font-bold text-center mb-12" data-aos="fade-up">Meet the Team</h2>
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="rounded-2xl overflow-hidden border border-blue-100 bg-white" data-aos="fade-up" data-aos-delay="50">
+          <div class="relative">
+            <img src="./src/img/Brejndead.webp" alt="Ykk" class="w-full h-72 object-cover" style="-webkit-user-drag: none;">
+            <div class="absolute bottom-0 left-0 right-0 px-6 py-4 bg-gradient-to-t from-slate-900/80 to-transparent text-white">
+              <h3 class="font-bold text-xl">@4_ykk</h3>
+              <p class="text-sm text-slate-200">Co-Founder</p>
+            </div>
+          </div>
+          <div class="px-6 py-4 flex items-center justify-between text-sm border-t border-blue-100 bg-blue-50">
+            <div class="flex gap-2">
+              <a href="https://www.roblox.com/users/591368982/profile" target="_blank" class="px-3 py-1 rounded bg-blue-600 text-white text-xs font-semibold hover:bg-blue-700">Roblox</a>
+              <a href="https://discord.com/users/965958971213111326" target="_blank" class="px-3 py-1 rounded bg-blue-600 text-white text-xs font-semibold hover:bg-blue-700">Discord</a>
+            </div>
+          </div>
+        </div>
+        <div class="rounded-2xl overflow-hidden border border-blue-100 bg-white" data-aos="fade-up" data-aos-delay="100">
+          <div class="relative">
+            <img src="./src/img/Crwnds.webp" alt="Timmy" class="w-full h-72 object-cover" style="-webkit-user-drag: none;">
+            <div class="absolute bottom-0 left-0 right-0 px-6 py-4 bg-gradient-to-t from-slate-900/80 to-transparent text-white">
+              <h3 class="font-bold text-xl">@JsATimmy</h3>
+              <p class="text-sm text-slate-200">Co-Founder</p>
+            </div>
+          </div>
+          <div class="px-6 py-4 flex items-center justify-between text-sm border-t border-blue-100 bg-blue-50">
+            <div class="flex gap-2">
+              <a href="https://www.roblox.com/users/780878222/profile" target="_blank" class="px-3 py-1 rounded bg-blue-600 text-white text-xs font-semibold hover:bg-blue-700">Roblox</a>
+              <a href="https://discord.com/users/898554334709686302" target="_blank" class="px-3 py-1 rounded bg-blue-600 text-white text-xs font-semibold hover:bg-blue-700">Discord</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-blue-900 text-white">
+    <div class="max-w-6xl mx-auto px-6 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <img src="./src/img/TransparentLogo.webp" alt="Logo" class="h-10 bg-white">
+        <span class="font-bold text-xl">Man Face Games</span>
+      </div>
+      <div class="flex items-center gap-4 text-blue-100">
+        <a href="https://discord.gg/ADDNDbBme9" target="_blank" class="hover:text-white"><i class="fab fa-discord"></i></a>
+      </div>
+    </div>
+    <div class="border-t border-blue-800 py-4 text-center text-blue-100 text-sm">
+      &copy; 2025 Man Face Games. All rights reserved. — Site by
+      <a href="https://brejndead.net" target="_blank" class="font-bold hover:text-white">@brejndead</a>
+    </div>
+  </footer>
+
+  <script type="module" src="./src/js2/count_stats.js"></script>
+  <script src="./src/js2/blur.js"></script>
+  <script type="module" src="./src/js2/front_games.js"></script>
+  <script src="./src/js2/avatar_img.js"></script>
+  <script src="./src/js2/menu.js"></script>
+  <script src="./src/js2/alert.js"></script>
+  <script>
+    AOS.init({ once: true, duration: 700 });
+  </script>
+</body>
+</html>
